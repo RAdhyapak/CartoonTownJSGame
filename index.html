@@ -1,0 +1,173 @@
+<style>
+    body {
+        background-color: black;
+    }
+    h1 {
+        margin: 0;
+    }
+    
+    button {
+        border: 0;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #ccc;
+    }
+
+    canvas {
+        cursor: url('./img/hook.cur'), pointer;
+    }
+
+
+</style>
+<div style="display: inline-block; position: relative">
+    <div
+        id = "overlappingDiv" 
+        style = "background-color: black; position:absolute; 
+        top: 0; left: 0; bottom: 0; right: 0; opacity: 0; pointer-events: none">
+    </div>
+
+    <!-- health bar of Draggle -->
+    <!-- <div 
+        style = 
+        "background-color: white;
+        width: 250px;
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        border: 4px solid black;
+        padding: 12px;">
+        <h1 style = "font-size: 16px; ">Draggle</h1>
+        <div style = "position: relative;">
+            <div style = "height: 5px; background-color: #ccc; margin-top: 10px;"></div>
+            <div id ="draggleHealthBar"  
+                style = "
+                height: 5px; 
+                background-color: green; 
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0">
+            </div>
+        </div>
+    </div> -->
+
+    
+    <!-- health bar of Emby -->
+    <!-- <div style = 
+        "background-color: white;
+        width: 250px;
+        position: absolute;
+        top: 300px;
+        right: 50px;
+        border: 4px solid black;
+        padding: 12px;">
+        <h1 style = "font-size: 16px; ">Emby</h1>
+        <div style = "position: relative;">
+            <div style = "height: 5px; background-color: #ccc; margin-top: 10px;"></div>
+            <div style = "
+                height: 5px; 
+                background-color: green; 
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0">
+            </div>
+        </div>
+    </div> -->
+    
+    <canvas id="canvas"></canvas>
+    <div id = "dialogDashboard" style = "display: none">
+        <div style=
+            "background-color: white;
+            position: absolute;
+            height: 20%;
+            left:0; 
+            right:0;
+            bottom: 0;
+            border-top: 4px black solid;
+            display: flex;
+            opacity: 0.7;">
+            
+        </div>
+    </div>  
+
+    <div id = "fishingDashboard">
+        <div style=
+            "background-color: white;
+            position: absolute;
+            height: 10%;
+            left:0; 
+            right:0;
+            bottom: 0;
+            border-top: 4px black solid;
+            display: flex;
+            opacity: 0.7;">
+            <div style = "width: 33.33%; display:grid; grid-template-columns: repeat(2, 1fr);">
+                <button onclick = "fishingGame.onRestart()">Restart</button>
+                <button onclick = "fishingGame.onExit()">Exit</button>
+            </div>
+            <div style = "width: 33.33%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-left: 4px black solid;">
+                <p>
+                    1. Collect 12 yellow or white fish <br>
+                    2. Avoid red fish as they are poisonous <br>
+                </p>
+            </div>
+            <div style = "width: 33.33%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-left: 4px black solid;">
+                <h1>Score: <span id="fishing-score">0</span></h1>
+            </div>
+        </div>
+    </div>  
+
+    <!-- <div style="
+            background-color: white; 
+            height: 140px; 
+            position: absolute; 
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-top: 4px black solid;
+            display: flex">
+        <div style = "width: 66.66%; display:grid; grid-template-columns: repeat(2, 1fr);">
+            <button>Tackle</button>
+            <button>Attack 2</button>
+        </div>
+        <div style = "
+            width: 33.33%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 4px black solid;">
+            <h1>Attack Type</h1>
+        </div>
+    </div> -->
+
+    <!-- <div style="
+            background-color: transparent;
+            position: absolute; 
+            bottom: 0;
+            height: 100%;
+            width: 80%;
+            left: 10%;
+            right: 10%;
+            border-top: 4px black solid;">
+        <div style =" position: relative;">
+            <image src = "img/fish_yellow.png"  style =" position: absolute; left: 0;" onclick="clickFish()"></image>
+            <image id ="fish1" src = "img/fish_yellow.png"  style =" position: absolute; right: 0" onclick="clickFish()"></image>
+        </div>
+    </div> -->
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="data/collisions.js"></script>
+<script src="data/fishingZones.js"></script>
+<script src="classes.js"></script>
+<script src="game.js"></script>
