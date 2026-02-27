@@ -6,7 +6,7 @@ canvas.height = 576
 
 document.getElementById("fishingDashboard").style.display = "none";
 let fishingGame = {
-    goal: 5,
+    goal: 12,
     score: 0,
     initiated: false, // flag for when fishing game is on screen
     inProgress: true, // flag for when fishing game is in progress
